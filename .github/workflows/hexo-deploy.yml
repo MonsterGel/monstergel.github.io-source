@@ -1,62 +1,21 @@
-name: Blog CI/CD
-
-# 触发条件：在 push 到 master 分支后触发
+name: deploying Hexo project to GitHub pages
 on:
   push:
-    branches: 
-      - master
-
-env:
-  TZ: Asia/Shanghai
+    branches:
+      - master # master 分支有 push 行为时就触发这个 action
 
 jobs:
-  blog-cicd:
-    name: Hexo blog build & deploy
-    runs-on: ubuntu-latest # 使用最新的 Ubuntu 系统作为编译部署的环境
-
+  build-and-deploy:
+    runs-on: ubuntu-latest
     steps:
-    - name: Checkout codes
-      uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@master
 
-    - name: Setup node
-      # 设置 node.js 环境
-      uses: actions/setup-node@v1
-      with:
-        node-version: '12.x'
-
-    - name: Cache node modules
-      # 设置包缓存目录，避免每次下载
-      uses: actions/cache@v1
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-
-    - name: Install hexo dependencies
-      # 下载 hexo-cli 脚手架及相关安装包
-      run: |
-        npm install hexo-cli gulp -g
-        npm install
-
-    - name: Generate files
-      # 编译 markdown 文件
-      run: |
-        hexo clean
-        hexo generate
-
-    - name: Deploy hexo blog
-      env: 
-        # Github 仓库
-        GITHUB_REPO: git@github.com:MonsterGel/monstergel.github.io-source.git
-        # Gitee 仓库
-        GITEE_REPO: https://gitee.com/monster_gel/monstergel.gitee.io.git
-      # 将编译后的博客文件推送到指定仓库
-      run: |
-        cd ./public && git init && git add .
-        git config user.name "Jiang Xu"
-        git config user.email "monster_gel@petalmail.com"
-        git add .
-        git commit -m "GitHub Actions Auto Builder at $(date +'%Y-%m-%d %H:%M:%S')"
-        git push --force --quiet "https://${{ secrets.HEXO_DEPLOY_GITHUB }}@$GITHUB_REPO" master:master
-        git push --force --quiet "https://monster_gel:${{ secrets.HEXO_DEPLOY_GITEE }}@$GITEE_REPO" master:master
-
+      - name: Build and Deploy
+        uses: theme-keep/hexo-deploy-github-pages-action@master # 使用专门部署 Hexo 到 GitHub pages 的 action
+        env:
+          PERSONAL_TOKEN: ${{ secrets.HEXO_DEPLOY_GITHUB }} # secret 名
+          PUBLISH_REPOSITORY: MonsterGel/monstergel.github.io # 公共仓库，格式：GitHub 用户名/仓库名
+          BRANCH: gh-pages # 分支，填 gh-pages 就行
+          PUBLISH_DIR: ./public # 部署 public 目录下的文件
 #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

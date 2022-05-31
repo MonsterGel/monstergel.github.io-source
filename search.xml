@@ -98,9 +98,9 @@
         <category>后端</category>
       </categories>
       <tags>
+        <tag>Java</tag>
         <tag>异常</tag>
         <tag>Runtime</tag>
-        <tag>Java</tag>
         <tag>Mybatis</tag>
         <tag>Mybatis-Plus</tag>
         <tag>Maven</tag>

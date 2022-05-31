@@ -1,0 +1,10 @@
+<section class="outer">
+  <% if (site.categories.length){ %>
+    <h1 class="page-type-title">
+      <%= __('分类') %>
+    </h1>
+    <div class="categories-box">
+      <%- list_categories() %>
+    </div>
+    <% } %>
+</section>

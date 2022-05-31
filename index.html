@@ -15,7 +15,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>标签 |  啫喱怪</title>
+      <title> 啫喱怪</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/images/logo.png" />
@@ -55,13 +55,163 @@
     
       
     <main class="content on">
-      <section class="outer">
-  
-    <h1 class="page-type-title">Tags</h1>
-    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8/" rel="tag">异常</a></li></ul>
-  
+      
+<section class="cover">
+    
+  <div class="cover-frame">
+    <div class="bg-box">
+      <img src="/images/bg.png" alt="image frame" />
+    </div>
+    <div class="cover-inner text-center text-white">
+      <h1><a href="/">啫喱怪</a></h1>
+      <div id="subtitle-box">
+        
+        <span id="subtitle"></span>
+        
+      </div>
+      <div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="cover-learn-more">
+    <a href="javascript:void(0)" class="anchor"><i class="ri-arrow-down-line"></i></a>
+  </div>
 </section>
 
+
+
+<script src="https://cdn.staticfile.org/typed.js/2.0.12/typed.min.js"></script>
+
+
+<!-- Subtitle -->
+
+  <script>
+    try {
+      var typed = new Typed("#subtitle", {
+        strings: ['不在能知，乃在能行', '', ''],
+        startDelay: 0,
+        typeSpeed: 200,
+        loop: true,
+        backSpeed: 100,
+        showCursor: true
+      });
+    } catch (err) {
+      console.log(err)
+    }
+  </script>
+  
+<div id="main">
+  <section class="outer">
+  
+  
+  
+
+<div class="notice" style="margin-top:50px">
+    <i class="ri-heart-fill"></i>
+    <div class="notice-content" id="broad"></div>
+</div>
+<script type="text/javascript">
+    fetch('https://v1.hitokoto.cn')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("broad").innerHTML = data.hitokoto;
+        })
+        .catch(console.error)
+</script>
+
+<style>
+    .notice {
+        padding: 20px;
+        border: 1px dashed #e6e6e6;
+        color: #969696;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        background: #fbfbfb50;
+        border-radius: 10px;
+    }
+
+    .notice i {
+        float: left;
+        color: #999;
+        font-size: 16px;
+        padding-right: 10px;
+        vertical-align: middle;
+        margin-top: -2px;
+    }
+
+    .notice-content {
+        display: initial;
+        vertical-align: middle;
+    }
+</style>
+  
+  <article class="articles">
+    
+    
+    
+    
+    <article
+  id="post-后端开发异常记录"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/05/31/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E5%BC%82%E5%B8%B8%E8%AE%B0%E5%BD%95/"
+    >后端开发异常记录</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/05/31/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E5%BC%82%E5%B8%B8%E8%AE%B0%E5%BD%95/" class="article-date">
+  <time datetime="2022-05-31T02:47:44.000Z" itemprop="datePublished">2022-05-31</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91/">开发</a> / <a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91/%E5%90%8E%E7%AB%AF/">后端</a>
+  </div>
+ 
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="此篇文章将会记录博主在开发后端过程中所遇到的一些异常问题与解决方法"><a href="#此篇文章将会记录博主在开发后端过程中所遇到的一些异常问题与解决方法" class="headerlink" title="此篇文章将会记录博主在开发后端过程中所遇到的一些异常问题与解决方法"></a>此篇文章将会记录博主在开发后端过程中所遇到的一些异常问题与解决方法</h2><h3 id="Mybatis-amp-MybatisPlus"><a href="#Mybatis-amp-MybatisPlus" class="headerlink" title="Mybatis&amp;MybatisPlus"></a>Mybatis&amp;MybatisPlus</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">MybatisPlus 持久层映射可以在实体类使用@TableName注解来指定映射数据库名；如果不使用该注解，在使用到MybatisPlus默认的数据库语句时，会默认映射以实体类名为基础的数据库名，导致报错(Invalid bound statement::not found)，见下方代码。</span><br><span class="line"></span><br><span class="line">@Data</span><br><span class="line">@AllArgsConstructor</span><br><span class="line">@NoArgsConstructor</span><br><span class="line">@TableName(value = <span class="string">&quot;message_manage&quot;</span>)  </span><br><span class="line">//不使用此注解则默认映射数据库为message_manage_entity</span><br><span class="line">public class MessageManageEntity &#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * <span class="built_in">id</span></span><br><span class="line">     */</span><br><span class="line">    private Long <span class="built_in">id</span>;</span><br><span class="line">    </span><br><span class="line">    ***</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8/" rel="tag">异常</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+  </article>
+  
+
+  
+</section>
+</div>
 
       <footer class="footer">
   <div class="outer">

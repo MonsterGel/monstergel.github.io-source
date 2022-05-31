@@ -1,3 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
+  <entry>
+    <title>后端开发异常记录</title>
+    <url>/2022/05/31/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E5%BC%82%E5%B8%B8%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="此篇文章将会记录博主在开发后端过程中所遇到的一些异常问题与解决方法"><a href="#此篇文章将会记录博主在开发后端过程中所遇到的一些异常问题与解决方法" class="headerlink" title="此篇文章将会记录博主在开发后端过程中所遇到的一些异常问题与解决方法"></a>此篇文章将会记录博主在开发后端过程中所遇到的一些异常问题与解决方法</h2><h3 id="Mybatis-amp-MybatisPlus"><a href="#Mybatis-amp-MybatisPlus" class="headerlink" title="Mybatis&amp;MybatisPlus"></a>Mybatis&amp;MybatisPlus</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">MybatisPlus 持久层映射可以在实体类使用@TableName注解来指定映射数据库名；如果不使用该注解，在使用到MybatisPlus默认的数据库语句时，会默认映射以实体类名为基础的数据库名，导致报错(Invalid bound statement::not found)，见下方代码。</span><br><span class="line"></span><br><span class="line">@Data</span><br><span class="line">@AllArgsConstructor</span><br><span class="line">@NoArgsConstructor</span><br><span class="line">@TableName(value = <span class="string">&quot;message_manage&quot;</span>)  </span><br><span class="line">//不使用此注解则默认映射数据库为message_manage_entity</span><br><span class="line">public class MessageManageEntity &#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * <span class="built_in">id</span></span><br><span class="line">     */</span><br><span class="line">    private Long <span class="built_in">id</span>;</span><br><span class="line">    </span><br><span class="line">    ***</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>开发</category>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>异常</tag>
+      </tags>
+  </entry>
 </search>

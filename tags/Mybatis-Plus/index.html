@@ -15,7 +15,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>后端开发异常记录 |  啫喱怪</title>
+      <title>Tag: Mybatis-Plus |  啫喱怪</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/images/logo.png" />
@@ -56,125 +56,60 @@
       
     <main class="content on">
       <section class="outer">
-  <article
-  id="post-后端开发异常记录"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
+  
+        
+              <article class="articles">
+                
+                  
+                    <h1 class="page-type-title">
+                      #&nbspMybatis-Plus
+                    </h1>
+                    
+                      
+                
+                  
+                    
+                      
+                        
+                            
+                              <div class="archives-wrap">
+                                <div class="archive-year-wrap">
+                                  <a href="/archives/2022" class="archive-year">
+                                    2022
+                                  </a>
+                                </div>
+                                <div class="archives">
+                                  
+                                    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2022/05/31/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  <time datetime="2022-05-31T02:47:44.000Z" itemprop="datePublished">05/31</time>
+</a>
        
-<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  后端开发异常记录
-</h1>
+<h2 itemprop="name">
+  <a class="archive-article-title" href="/2022/05/31/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/"
+    >后端开发笔记</a> 
+</h2>
  
 
-      
     </header>
-     
-    <div class="article-meta">
-      <a href="/2022/05/31/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E5%BC%82%E5%B8%B8%E8%AE%B0%E5%BD%95/" class="article-date">
-  <time datetime="2022-05-31T02:47:44.000Z" itemprop="datePublished">2022-05-31</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91/">开发</a> / <a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91/%E5%90%8E%E7%AB%AF/">后端</a>
-  </div>
- 
-    </div>
+    
+    
       
-    <div class="tocbot"></div>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Feign/" rel="tag">Feign</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gradle/" rel="tag">Gradle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Maven/" rel="tag">Maven</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mybatis-Plus/" rel="tag">Mybatis-Plus</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Runtime/" rel="tag">Runtime</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8/" rel="tag">异常</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/" rel="tag">配置中心</a></li></ul>
 
-
-
-
-  
-    <div class="article-entry" itemprop="articleBody">
-       
-  <blockquote>
-<p><strong>此篇文章将会记录本人在开发后端过程中所遇到的一些异常问题与解决方法</strong></p>
-</blockquote>
-<h2 id="Mybatis-amp-MybatisPlus"><a href="#Mybatis-amp-MybatisPlus" class="headerlink" title="Mybatis&amp;MybatisPlus"></a>Mybatis&amp;MybatisPlus</h2><ul>
-<li><strong>MybatisPlus 持久层映射可以在实体类使用@TableName注解来指定映射数据库名；如果不使用该注解，在使用到MybatisPlus默认的数据库语句时，会默认映射以实体类名为基础的数据库名，导致报错(Invalid bound statement::not found)，见下方代码:</strong><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@Data</span><br><span class="line">@AllArgsConstructor</span><br><span class="line">@NoArgsConstructor</span><br><span class="line">@TableName(value = <span class="string">&quot;message_manage&quot;</span>)  </span><br><span class="line">//不使用此注解则默认映射数据库为message_manage_entity</span><br><span class="line">public class MessageManageEntity &#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * <span class="built_in">id</span></span><br><span class="line">     */</span><br><span class="line">    private Long <span class="built_in">id</span>;</span><br><span class="line">    </span><br><span class="line">    ***</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
- 
-      <!-- reward -->
-      
-    </div>
     
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-<div class="share-btn">
-      <span class="share-sns share-outer">
-        <i class="ri-share-forward-line"></i>
-        分享
-      </span>
-      <div class="share-wrap">
-        <i class="arrow"></i>
-        <div class="share-icons">
-          
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="ri-weibo-fill"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="ri-wechat-fill"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="ri-qq-fill"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="ri-douban-line"></i>
-          </a>
-          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a> -->
-          
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="ri-facebook-circle-fill"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="ri-twitter-fill"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="ri-google-fill"></i>
-          </a>
-        </div>
-      </div>
-</div>
-
-<div class="wx-share-modal">
-    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/05/31/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E5%BC%82%E5%B8%B8%E8%AE%B0%E5%BD%95/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8/" rel="tag">异常</a></li></ul>
-
-    </footer>
   </div>
-
-   
-  
-   
-    
-    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
-    <div id="twikoo" class="twikoo"></div>
-    <script>
-        twikoo.init({
-            envId: ""
-        })
-    </script>
- 
 </article>
+                                      
+                                        
+                                </div>
+                              </div>
+                              
+                                
 
+                                  
 </section>
       <footer class="footer">
   <div class="outer">
@@ -298,22 +233,6 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
- 
-<script src="/js/tocbot.min.js"></script>
-
-<script>
-  tocbot.init({
-    tocSelector: ".tocbot",
-    contentSelector: ".article-entry",
-    headingSelector: "h1, h2, h3, h4, h5, h6",
-    hasInnerContainers: true,
-    scrollSmooth: true,
-    scrollContainer: "main",
-    positionFixedSelector: ".tocbot",
-    positionFixedClass: "is-position-fixed",
-    fixedSidebarOffset: "auto",
-  });
-</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link

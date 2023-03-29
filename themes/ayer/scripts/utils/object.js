@@ -1,5 +1,8 @@
 'use strict';
-
+// 'use strict';
+// const isObject = (obj) => {
+//   return obj && typeof obj === 'object' && !Array.isArray(obj);
+// };
 const isObject = (obj) => {
   return obj && typeof obj === 'object' && !Array.isArray(obj);
 };

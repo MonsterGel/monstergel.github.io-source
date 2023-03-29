@@ -1,4 +1,4 @@
-# xiolift-mdm-service
+# monster-blog
 
 主数据管理后台服务
 
@@ -15,14 +15,14 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
-git remote add origin http://10.19.1.186/mdm/xiolift-mdm-service.git
+git remote add origin https://github.com/MonsterGel/monstergel.github.io-source.git
 git branch -M master
 git push -uf origin master
 ```
 
 ## Integrate with your tools
 
-- [ ] [Set up project integrations](http://10.19.1.186/mdm/xiolift-mdm-service/-/settings/integrations)
+- [ ] [Set up project integrations](https://monstergel.github.io/)
 
 ## Collaborate with your team
 
